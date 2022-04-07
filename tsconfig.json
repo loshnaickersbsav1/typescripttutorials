@@ -5,22 +5,21 @@
       "@shared/*": ["shared/*"]
     },
     "preserveConstEnums": true,
-    "strictNullChecks": true,
-    "watch": true,~~
+    "strictNullChecks": false,
     "sourceMap": true,
-    "target": "es6",
+    "watch": true,
+    "target": "es5",
     "moduleResolution": "node",
-    "module": "CommonJS",
+    "module": "commonjs",
+    "declaration": true,
     "outDir" : "js", 
-    "lib": ["es2017", "dom", "es6", "esnext.array"],
+   "lib": ["es2015", "dom",  "esnext.array"],
     "typeRoots": ["./node_modules/@types", "./index.d.ts"],
-    "rootDir": "./"
   },
   "lintOptions": {
     "rules": {
       "variable-name": false
     }
   },
-  "include": ["ArrowFunctions.ts", "index.d.ts"],
-  "exclude": ["node_modules/**/*"]
+   "exclude": ["node_modules/**/*"]
 }

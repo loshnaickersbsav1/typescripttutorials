@@ -8,5 +8,4 @@ function CreateCustomerbyID (name: string , surname:string): string
 let functionTypeVar : ( name: string, surname:string)  => string;
 functionTypeVar = CreateCustomerbyID;
 let newName: string = functionTypeVar("losh" , "Naicker");
-
 console.log(newName);

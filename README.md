@@ -207,10 +207,280 @@ interface Book{
        markDamaged: (reason: string=>)
 }
 
+Can have optional fields and functions.
+
+## Interface for Function types
+
+function CreateCustomerId ( name: sring, id: number ): string {
+       return name + id;
+}
+
+
+interface DamageLogger {
+(reason:string) : void; 
+}
+
+-----
+//provide the implementation
+logDmage = (damage: string) => console.log('damage reported interface ftypes ' + damage);
+
+//invoking the function
+logDmage("new damage");
+
+### note:
+ Java script doesn't implement interfaces typescript does
+
+
+ # Classes
+
+Perform -initialization of new intances of a class
+
+```
+class 
+{
+       constrcutor ( title:  string publisher?: string) {
+
+       }
+}
+
+let encyclopedia = new ReferenceItem('WorldPedia' , 'WorldPub' ); 
+
+/**calls Constructors - 1 constructor per class
+constructor to return new instance of a class - new keyword*/
+```
+
+
+## Proteries and Methods
+
+```
+       class ReferenceItem {
+
+              numberOfPage: number;
 
 
 
 
+       }
+
+```
+## Access Modifiers
+
+```
+modifiers default(blank) public , parameter 
+                  private , not be available to consumers of the class and subclasses
+                   # ,   private field names in fron tof field names ; added   
+                         protection. private even before compiled.
+                   Protected - not publicly available on or subclasses  not on instances.      
+```
+
+## Static keyowrd
+. static department: string = 'Research'; //only accessible by the keyword department
+. use the class name ReferenceItem.department to reference the staic keword.
+
+## Poperty Parameters
+
+  If you want a porperty same as the constructor parm passed in 
+
+  constrcutor ( public title:  string publisher?: string) {
+
+  This is done by using the public keyword.
+
+
+## Inheritance
+
+![inheritance](/assets/inherit.png)
+
+new instance of encyclopedia chiled with have all tthe Referencnce(parent)
+Faciltates code reuse.
+
+
+### Extending classes with In
+```
+class ReferenceItem {
+       title: string;
+       printItem(): void() {//print something here }
+}
+
+class Journal extends RefrenceItem {
+       constructor() {
+              super(); //must do this even if the parents havent fe
+       }
+}
+```
+
+## Abstract Classes
+
+1. abstract infront of class
+2. base classses that may not be instatiated
+3. May contain implementation
+4. abstract Methods are not implemented
+
+## Class expressions
+
+-Class statements are 1st type
+-Class expression, name is optional
+
+# Modules
+- They're modular
+- maintable and reusable
+- native to node and es2015
+- organised 
+- Module Formats, typescript itself es2015 format, compiler set the output of the   
+  java script to :
+ 
+       * CommonJS 
+       * Asynchronous AMD 
+       * Universal UMD
+       * System
+       * ES2015, Es2020 etc
+
+
+   - you import with as 
+- exports from a module don't have to be done for all components.
+  There may be base components that are not exportable.
+- import * as Interfaces from './interfaces'; // to import entire module.
+
+## default export
+- if you want to export only 1 item from a module
+
+// ./director.ts
+    export default class {
+       title: string;
+       dir:string;
+    }
+- you don't have to know the name of the item when exported On doing the import
+   import refbook from './director';
+
+   ..new refbook..
+
+# Generics
+One bit of code that can be used to cover very different types.
+type parameter ?
+
+## Generic Arrays
+
+Array<T>
+Highlight tha Array it'self can be created with many types.
+
+
+## Generic functions
+
+function LogAndReturn<T> (thing: T): T { }  //T is specified next to the function name. T type will take T and return T
+
+let somestring : string = LogAndReurn<string>('log');
+let somestring : number = LogAndReurn<number>(9);
+
+Bits of code that can work with multiple types of parameters.
+
+- type parameters ; listed  <T> 
+- actually instances created when the instance created  with the specific type.
+
+1. Generic arrays will be used quite often
+- let poetryBooks: Book[];
+  let fictionBooks: Array<Book>;
+
+2. Generic functions
+ function Purge<T> (inventory: Array<T>): Array<T> {
+    return inventory.splice(2, inventory.length);
+} 
+let PurgedBooked: Books[] = Purge<Books> (Inventory);
+//let PurgedBooked2: number[] = Purge<Books> (Inventory); error , not of type expected.
+PurgedBooked.forEach(books => console.log (`Purged books ${books.title}`) ); 
+
+
+let PurgedNums: number[] = Purge<number> ([1,2,3]);
+PurgedNums.forEach(x => console.log(x));
+
+
+3.//t is a type parameter, can list more than one comma seperated 
+interface Inventory<T> {
+  getNewestItemm: () =>;
+  addIem: (newItem)
+}
+
+# Generic Classes
+
+Are very similar to non generic 
+
+class Catalof<T> implement Inventory<T> {
+
+       private catalofItems = new Array<T>();
+       addItem(newItem: T) {
+              this.catalogItems.push(newItem);
+       }
+
+
+}
+
+let bookCatalog = new Catolog<books>;
+
+
+## Constraints for generics
+
+interface CatalogItem {
+       catalogNumber: number;
+}
+
+class Catalog <T extends CatalogItem> implements Inventory<T> {
+
+}
+
+
+# Mixins 
+
+Are an implemention of an Intersection type.
+
+
+
+# TSconfig and 
+
+watch - compiles ts on changes
+
+# Declaration Files
+
+Provide checking for node repo's available.
+
+e.g. Lodash , seperate to typescript definitions
+@types/lodashTypeScript definitions for Lo-Dash 
+
+npm install --save @types/lodash --save-dev  ; use --save-dev cause you don't want to have type definitions in productions.
+
+
+
+# Symbols
+. Added in the ES2015 of the language 
+. unique and immutable , primitives 
+. why ? good questions. 
+. specific use cases
+       > Objects with enum like behaviouse
+       > Computed property declarations
+       > Short  list- customize internal language behaviour.
+
+
+
+
+
+
+
+# Asyncheonous Code in Typescript 
+
+## Synchronous
+       1) as soon as slow task codes. Tasks are blocked.
+       2) Everything returns to normal
+
+## Asychronous
+
+       1) work
+       2) Long tasks can run in parralell
+
+## Callback 
+       1) A higher order function(fnctions that take other functions as param), may be passed functions 
+          as parameters. These functions are call back functions
+       2) Callbacks execute after an asynchrounous operation
+       3) Commonly used to process asynchronous results
+       4) May have a signature
+       5) Convention 2 params -> error object  and a data parameter that the call back needs to process
+       6) 
 
 
 
