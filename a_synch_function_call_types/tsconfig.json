@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "allowJs": true,
+    "paths": {
+      "@shared/*": ["shared/*"]
+    },
+    "preserveConstEnums": true,
+    "strictNullChecks": false,
+    "sourceMap": true,
+    "watch": true,
+    "target": "es2015",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir" : "js", 
+   "lib": ["es2015", "dom",  "esnext.array"],
+    "typeRoots": ["./node_modules/@types", "./index.d.ts"],
+  },
+  "lintOptions": {
+    "rules": {
+      "variable-name": false
+    }
+  },
+   "exclude": ["node_modules/**/*"]
+}

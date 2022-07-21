@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
     "baseUrl": "./src",
+    "allowJs": true,
     "paths": {
-      "@shared/*": ["shared/*"]
+      "@shared/*": ["shared/*"],
+      "@resources/*": ["resources/*"]
     },
     "preserveConstEnums": true,
     "strictNullChecks": false,
     "sourceMap": true,
     "watch": true,
-    "target": "es5",
+    "target": "es2015",
     "moduleResolution": "node",
     "module": "commonjs",
     "declaration": true,

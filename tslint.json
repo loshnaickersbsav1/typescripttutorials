@@ -18,9 +18,6 @@
       true,
       "spaces"
     ],
-    "ordered-imports": [
-      true
-    ],
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [
@@ -67,6 +64,7 @@
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
+    "no-unnecessary-semicolons": false,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "one-line": [
@@ -84,7 +82,8 @@
     "radix": true,
     "semicolon": [
       true,
-      "always"
+      "always",
+      "ignore-bound-class-methods"
     ],
     "triple-equals": [
       true,

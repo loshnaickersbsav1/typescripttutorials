@@ -19,7 +19,7 @@ Tsconfig
 - name of the java script file that the compiler will o  output.
 files element is the files you want to compile.
 
-## Typescript home page
+## Typescript home page-https://www.typescriptlang.org/
 npm install -g typescript /*installs typescript globally. { to run tsc from anywhere}
 
 name - quickly browse all the type script compiler options
@@ -33,6 +33,20 @@ watch; recompile source files as they are saved.
 tsc app.ts -> compiles and generates a java script file
 
 tsconfig files can be placed in each directory to use different behavior for folders.
+
+
+Error:
+======
+1) Node environment types where missing:
+
+npm install --save-dev @types/node
+"
+node_modules/aws-sdk/lib/config-base.d.ts:1:34 - error TS2307: Cannot find module 'http' or its corresponding type declarations.
+1 import {Agent as httpAgent} from 'http';
+"
+
+
+
 
 ## Webpack
 Is the development server to deliver to the browser; that will serve your ouput java code
@@ -50,14 +64,11 @@ message!. {if you know value is not null or use if}
 . type anonnotations and type inference
 . Managing null and underfined
 . Control flow-based type analysis
-Ba
-
-
-sic type script
+Basic type script
 Boolean 
 Number - represents floating point same as javascrip
 String - single or double quotes
-       -template string `
+        -template string `
 Arrays - same as ..
 Enum - not in java script but in type script
 let instead of var for variables e.g let someString = 'Hello World';
@@ -108,7 +119,7 @@ console.log(categortString); //Biography
 
 1. let strArray1: string[] = ['here' , 'are'  , 'String'] ; 
 1. let strArray1: Arry<string> = ['here' , 'are'  , 'String'] ;  
-1. let strArray: any[] = [42 , true, 'banana']; 
+1. let strArray: any[] = [42 , true, 'banana'];  //any type
 
 
 ## Tuple 
@@ -174,7 +185,7 @@ function GetTitles(author: string, available?: boolean): string[] { //implement 
 ```
 /**
 the thing doesn't need to be the same as 
-You don't expressy say implments ..simply uses function types and them pass instead.
+You don't expressly say implments ..simply uses function types and them pass instead.
 Polymorphic
 */
 interface Duck {
@@ -474,17 +485,81 @@ npm install --save @types/lodash --save-dev  ; use --save-dev cause you don't wa
        2) Long tasks can run in parralell
 
 ## Callback 
-       1) A higher order function(fnctions that take other functions as param), may be passed functions 
+       1) A higher order function(functions that take other functions as param), may be passed functions 
           as parameters. These functions are call back functions
        2) Callbacks execute after an asynchrounous operation
+       3) Convention 2 params -> error object  and a data parameter that the call back needs to process
+          readfile ('./all_staging_table.json' , (err, data) => { } );
        3) Commonly used to process asynchronous results
        4) May have a signature
-       5) Convention 2 params -> error object  and a data parameter that the call back needs to process
+
        6) 
 
 
 
 
+dynamodb
+
+
+// aws.config.dynamodb({endp})
+/*
+Scalars
+--------
+Numbers − They are limited to 38 digits, and are either positive, negative, or zero.
+String − They are Unicode using UTF-8, with a minimum length of >0 and maximum of 400KB.
+Binary − They store any binary data, e.g., encrypted data, images, and compressed text. DynamoDB views its bytes as unsigned.
+Boolean − They store true or false.
+Null − They represent an unknown or undefined state.
+Parttion key  and sort key,
+*/
+
+// aws.config.update({ region: 'ap-southeast-1', endpoint: 'http://localhost:8000' });
+// key below is composite ke
+
+// DocDB.createTable(params, function)
+
+// list of Payment events
+
+// payment-paid-file-creation#2022-06-22T02:00:44.584Z
+// payment-request-file-creation#2022-06-22T02:00:24.421Z
+// payment-issued-file-creation#2022-06-22T02:00:23.347Z
+
+// retrieve all the requests records , using the batchname;
+// >> each reqest record must have a corresponding response record with an equivalent
+// >> gsi correlation ->  id
+
+// loop through retrieve all the responses using the correlation id - if not found send an email or slack
+
+// payment-reversal-file-creation#2022-06-30T02:00:42.120Z
+// ---
+
+
+AWS 
+----
+
+Scans 
+
+aws dynamodb scan --profile test --table-name paymenthub-tdu-service-infrastructure-test-job-staging-notif-table-v2 --filter-expression "batch_name :name" --filter-expression 'contains(batch_name,:name)' --expression-attribute-values '{":name":{"S":"022-06-22T"}}'    --query "Items[*].[id.S,batchname.S]" \--output text
 
 
 
+
+## NPM Install
+npm install -D @types/aws-lambda ; installs places them in sav-
+Additional flags:
+
+              • -P, --save-prod: Package will appear in your dependencies. This is the default unless -D or -O are present.
+
+              • -D, --save-dev: Package will appear in your devDependencies.
+
+              • -O, --save-optional: Package will appear in your optionalDependencies.
+
+              • --no-save: Prevents saving to dependencies.  When using any of the above options to save dependencies to your package.json, there are two additional, optional flags:
+
+              • -E, --save-exact: Saved dependencies will be configured with an exact version rather than using npm's default semver range operator.
+
+              • -B, --save-bundle: Saved dependencies will also be added to your bundleDependencies list.  Further, if you have an npm-shrinkwrap.json or package-lock.json then it will be updated as
+                well.  <scope> is optional. The package will be downloaded from the registry associated with the specified scope. If no registry is associated with the given scope the default registry
+                is assumed. See npm help scope.  Note: if you do no
+
+                

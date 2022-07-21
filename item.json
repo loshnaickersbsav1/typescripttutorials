@@ -1,0 +1,17 @@
+{
+    "id": {
+        "S": "loshEng1"
+    },
+    "batch_name": {
+        "S": "payment-paid-response#2022-07-14T09:00:48.134Z"
+    },
+    "batch_start_time": {
+        "S": "payment-paid-response#2022-07-14T09:00:48.134Z"
+    },
+    "ttl": {
+        "N": "999999999"
+    },
+    "reference_id": {
+        "S": "x0021"
+    }
+}

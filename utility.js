@@ -50,7 +50,7 @@ function GetAllBooksMod() {
     */
     var books = [
         { id: 1, title: 'Ulyses', author: 'James Joyce', available: true, category: enummod_1.CategoryMod.Poetry },
-        { id: 2, title: 'A farewell to Arms', author: 'Ernst Hemingway', available: false, category: enummod_1.CategoryMod.Biography },
+        { id: 2, title: 'A farewell to Arms', author: 'Ernst Hemingway', available: false, category: enummod_1.CategoryMod.Fiction },
         { id: 3, title: 'I know why the Caged Bird Sings', author: 'Maya A', available: true, category: enummod_1.CategoryMod.Fiction }
     ];
     return books;
